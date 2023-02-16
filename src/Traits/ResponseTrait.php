@@ -18,7 +18,10 @@ use Psr\Http\Message\ResponseInterface;
 
 trait ResponseTrait
 {
-    protected ResponseInterface $response;
+    /**
+     * @var \Psr\Http\Message\ResponseInterface
+     */
+    protected $response;
 
     public function setResponse(ResponseInterface $response): self
     {

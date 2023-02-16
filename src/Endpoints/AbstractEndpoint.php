@@ -21,7 +21,10 @@ abstract class AbstractEndpoint
 {
     use EndpointTrait;
 
-    protected ClientInterface $client;
+    /**
+     * @var \Elastic\Elasticsearch\ClientInterface
+     */
+    protected $client;
 
     public function __construct(ClientInterface $client)
     {

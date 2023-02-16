@@ -35,28 +35,38 @@ final class Client implements ClientInterface
     use EndpointTrait;
     use NamespaceTrait;
     
-    protected Transport $transport;
-    protected LoggerInterface $logger;
+    /**
+     * @var \Elastic\Transport\Transport
+     */
+    protected $transport;
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    protected $logger;
 
     /**
      * Specify is the request is asyncronous
+     * @var bool
      */
-    protected bool $async = false;
+    protected $async = false;
     
     /**
      * Enable or disable the x-elastic-meta-header
+     * @var bool
      */
-    protected bool $elasticMetaHeader = true;
+    protected $elasticMetaHeader = true;
 
     /**
      * Enable or disable the response Exception
+     * @var bool
      */
-    protected bool $responseException = true;
+    protected $responseException = true;
 
     /**
-     * The endpoint namespace storage 
+     * The endpoint namespace storage
+     * @var mixed[] 
      */
-    protected array $namespace;
+    protected $namespace;
 
     public function __construct(
         Transport $transport, 
@@ -94,8 +104,9 @@ final class Client implements ClientInterface
 
     /**
      * @inheritdoc
+     * @return $this
      */
-    public function setAsync(bool $async): self
+    public function setAsync(bool $async): \Elastic\Elasticsearch\ClientInterface
     {
         $this->async = $async;
         return $this;
@@ -111,8 +122,9 @@ final class Client implements ClientInterface
 
     /**
      * @inheritdoc
+     * @return $this
      */
-    public function setElasticMetaHeader(bool $active): self
+    public function setElasticMetaHeader(bool $active): \Elastic\Elasticsearch\ClientInterface
     {
         $this->elasticMetaHeader = $active;
         return $this;
@@ -128,8 +140,9 @@ final class Client implements ClientInterface
 
     /**
      * @inheritdoc
+     * @return $this
      */
-    public function setResponseException(bool $active): self
+    public function setResponseException(bool $active): \Elastic\Elasticsearch\ClientInterface
     {
         $this->responseException = $active;
         return $this;

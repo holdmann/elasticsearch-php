@@ -55,8 +55,9 @@ use Elastic\Elasticsearch\Endpoints\Xpack;
  */
 trait NamespaceTrait
 {
-	/** The endpoint namespace storage */
-	protected array $namespace;
+	/** The endpoint namespace storage
+  * @var mixed[] */
+ protected $namespace;
 
 
 	public function asyncSearch(): AsyncSearch

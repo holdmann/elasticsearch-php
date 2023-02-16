@@ -36,94 +36,108 @@ class ClientBuilder
 
     /**
      * PSR-18 client
+     * @var \Psr\Http\Client\ClientInterface
      */
-    private ClientInterface $httpClient;
+    private $httpClient;
 
     /**
      * The HTTP async client
+     * @var \Http\Client\HttpAsyncClient
      */
-    private HttpAsyncClient $asyncHttpClient;
+    private $asyncHttpClient;
 
     /**
      * PSR-3 Logger
+     * @var \Psr\Log\LoggerInterface
      */
-    private LoggerInterface $logger;
+    private $logger;
 
     /**
      * The NodelPool
+     * @var \Elastic\Transport\NodePool\NodePoolInterface
      */
-    private NodePoolInterface $nodePool;
+    private $nodePool;
 
     /**
      * Hosts (elasticsearch nodes)
+     * @var mixed[]
      */
-    private array $hosts;
+    private $hosts;
 
     /**
      * Elasticsearch API key
+     * @var string
      */
-    private string $apiKey;
+    private $apiKey;
 
     /**
      * Basic authentication username
+     * @var string
      */
-    private string $username;
+    private $username;
 
     /**
      * Basic authentication password
+     * @var string
      */
-    private string $password;
+    private $password;
 
     /**
      * Elastic cloud Id
+     * @var string
      */
-    private string $cloudId;
+    private $cloudId;
 
     /**
      * Retries
-     * 
+     *
      * The default value is calculated during the client build
      * and it is equal to the number of hosts
+     * @var int
      */
-    private int $retries;
+    private $retries;
 
     /**
      * SSL certificate 
      * @var array [$cert, $password] $cert is the name of a file containing a PEM formatted certificate,
      *              $password if the certificate requires a password 
      */
-    private array $sslCert;
+    private $sslCert;
 
     /**
      * SSL key
      * @var array [$key, $password] $key is the name of a file containing a private SSL key,
      *              $password if the private key requires a password
      */
-    private array $sslKey;
+    private $sslKey;
 
     /**
      * SSL verification
-     * 
+     *
      * Enable or disable the SSL verfiication (default is true)
+     * @var bool
      */
-    private bool $sslVerification = true;
+    private $sslVerification = true;
 
     /**
      * SSL CA bundle
+     * @var string
      */
-    private string $sslCA;
+    private $sslCA;
 
     /**
      * Elastic meta header
-     * 
+     *
      * Enable or disable the x-elastic-client-meta header (default is true)
+     * @var bool
      */
-    private bool $elasticMetaHeader = true;
+    private $elasticMetaHeader = true;
 
     /**
      * HTTP client options
+     * @var mixed[]
      */
-    private array $httpClientOptions = [];
+    private $httpClientOptions = [];
 
     /**
      * Make the constructor final so cannot be overwritten

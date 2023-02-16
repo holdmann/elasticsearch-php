@@ -38,19 +38,30 @@ class Elasticsearch implements ElasticsearchInterface, ResponseInterface, ArrayA
     use ProductCheckTrait;
     use MessageResponseTrait;
 
-    protected array $asArray;
-    protected object $asObject;
-    protected string $asString;
+    /**
+     * @var mixed[]
+     */
+    protected $asArray;
+    /**
+     * @var object
+     */
+    protected $asObject;
+    /**
+     * @var string
+     */
+    protected $asString;
 
     /**
      * The PSR-7 response
+     * @var \Psr\Http\Message\ResponseInterface
      */
-    protected ResponseInterface $response;
+    protected $response;
 
     /**
      * Enable or disable the response Exception
+     * @var bool
      */
-    protected bool $responseException;
+    protected $responseException;
 
     /**
      * @throws ClientResponseException if status code 4xx
